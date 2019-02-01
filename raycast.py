@@ -16,8 +16,8 @@ h = 1
 
 for i in range(250,-250,-1):
     a=math.atan2(i,250)+direc
-    y=math.sin(a)/abs(math.cos(a))
-    x=math.cos(a)/abs(math.sin(a))
+    y=math.sin(a)/abs(math.cos(a)) if math.cos(a) != 0 else 1000000*math.sin(a)
+    x=math.cos(a)/abs(math.sin(a)) if math.sin(a) != 0 else 1000000*math.cos(a)
     cx=list(cords)
     cy=list(cords)
     while 0<=cx[0]<=len(grid)-1 and 1<=cx[1]<=len(grid[0])-2 and not grid[int(math.floor(cx[0]))][int(cx[1] if y > 0 else cx[1]-1)]:
